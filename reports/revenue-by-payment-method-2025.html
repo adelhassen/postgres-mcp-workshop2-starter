@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2025 Revenue by Payment Method</title>
+  <style>
+    :root {
+      --ink: #17324d;
+      --muted: #5b7185;
+      --paper: #f6f8f5;
+      --panel: #ffffff;
+      --line: #d8e1e6;
+      --accent: #d86745;
+      --accent-soft: #fff0e9;
+      --green: #287d6a;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 56px 24px 72px; }
+    header { border-bottom: 1px solid var(--line); padding-bottom: 30px; }
+    .eyebrow {
+      color: var(--accent);
+      font: 700 0.76rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h1 { font-size: clamp(2.3rem, 6vw, 4.5rem); line-height: 0.98; margin: 14px 0 18px; max-width: 720px; }
+    .lede { color: var(--muted); font-size: 1.12rem; margin: 0; max-width: 650px; }
+    .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 30px 0 42px; }
+    .metric { background: var(--panel); border: 1px solid var(--line); padding: 22px; }
+    .metric-label { color: var(--muted); font: 700 0.72rem/1.2 Arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
+    .metric-value { display: block; font-size: 2rem; margin-top: 6px; }
+    .metric:first-child { border-top: 4px solid var(--accent); }
+    .metric:nth-child(2) { border-top: 4px solid var(--green); }
+    .metric:nth-child(3) { border-top: 4px solid var(--ink); }
+    section { background: var(--panel); border: 1px solid var(--line); padding: 28px; }
+    h2 { font-size: 1.55rem; margin: 0 0 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid var(--line); padding: 15px 10px; text-align: left; }
+    th { color: var(--muted); font: 700 0.72rem/1.2 Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+    td:not(:first-child), th:not(:first-child) { text-align: right; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:first-child td:first-child { color: var(--accent); font-weight: 700; }
+    .bar { background: #edf1ef; height: 8px; margin-top: 7px; width: 130px; }
+    .bar span { background: var(--accent); display: block; height: 100%; }
+    .note { color: var(--muted); font-size: 0.94rem; margin: 22px 0 0; }
+    footer { color: var(--muted); font: 0.82rem/1.5 Arial, sans-serif; margin-top: 26px; }
+    code { background: var(--accent-soft); color: var(--ink); padding: 2px 5px; }
+    @media (max-width: 640px) {
+      .wrap { padding: 34px 16px 48px; }
+      .summary { grid-template-columns: 1fr; }
+      section { padding: 18px 12px; overflow-x: auto; }
+      table { min-width: 620px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">Revenue report / 2025</div>
+      <h1>Revenue by payment method</h1>
+      <p class="lede">A year-end view of payment activity, ranked by collected revenue in USD.</p>
+    </header>
+
+    <div class="summary" aria-label="Report summary">
+      <div class="metric"><span class="metric-label">Total revenue</span><strong class="metric-value">$692,940.00</strong></div>
+      <div class="metric"><span class="metric-label">Payments</span><strong class="metric-value">50,799</strong></div>
+      <div class="metric"><span class="metric-label">Top method</span><strong class="metric-value">Card</strong></div>
+    </div>
+
+    <section>
+      <h2>Breakdown</h2>
+      <table>
+        <thead>
+          <tr><th>Payment method</th><th>Revenue</th><th>Share</th><th>Payments</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Card<div class="bar" aria-hidden="true"><span style="width: 49.78%"></span></div></td><td>$344,930.00</td><td>49.78%</td><td>25,160</td></tr>
+          <tr><td>PayPal<div class="bar" aria-hidden="true"><span style="width: 19.93%"></span></div></td><td>$138,110.00</td><td>19.93%</td><td>10,193</td></tr>
+          <tr><td>Apple Pay<div class="bar" aria-hidden="true"><span style="width: 15.35%"></span></div></td><td>$106,360.00</td><td>15.35%</td><td>7,810</td></tr>
+          <tr><td>Google Pay<div class="bar" aria-hidden="true"><span style="width: 14.94%"></span></div></td><td>$103,540.00</td><td>14.94%</td><td>7,636</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Card generated nearly half of 2025 revenue, exceeding the next-largest method, PayPal, by $206,820.00.</p>
+    </section>
+
+    <footer>
+      <strong>Methodology:</strong> Revenue is the sum of <code>payments.amount_usd</code>, grouped by <code>payments.method</code> for payments dated from <code>2025-01-01</code> inclusive through <code>2026-01-01</code> exclusive. Shares are calculated against total 2025 revenue and rounded to two decimals.
+    </footer>
+  </main>
+</body>
+</html>
