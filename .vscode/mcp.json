@@ -1,0 +1,28 @@
+{
+  "servers": {
+    "postgres-server": {
+      "type": "stdio",
+      "command": "poetry",
+      "args": [
+        "-C", 
+        "/Users/adelhassen/data_science/fpds_jan_2026/postgres-mcp-workshop2", 
+        "run", 
+        "python", 
+        "postgres-mcp-server/main.py"]
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/x/all"
+    },
+     "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${workspaceFolder}"
+      ]
+     }
+  }
+}
+
